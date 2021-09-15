@@ -1,0 +1,43 @@
+{
+  "name": "efsc-gallery",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "@craco/craco": "^6.2.0",
+    "@headlessui/react": "^1.4.0",
+    "@heroicons/react": "^1.0.4",
+    "@tailwindcss/forms": "^0.3.3",
+    "axios": "^0.21.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3"
+  },
+  "scripts": {
+    "eject": "craco eject",
+    "start": "craco start",
+    "start:prod": "NODE_ENV=prod craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "build-prod": "NODE_ENV=prod craco build"
+
+  },
+  "proxy": "http://localhost:3600/",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^9.0.0",
+    "postcss": "^8.3.6",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7"
+  }
+}
