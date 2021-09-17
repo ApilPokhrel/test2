@@ -114,30 +114,36 @@ export default function Album() {
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {albums.map((album, i) => (
             <div>
-              <div
-                onClick={() => history.push("/gallery/" + album._id)}
-                className={`w-40 h-40 m-4 ${getColor(
-                  i
-                )} rounded-2xl items-center justify-center text-center text-white py-16 cursor-pointer	`}
-              >
-                {album.name}
+              <div className="card flex flex-col justify-center p-2 bg-white rounded-lg shadow-2xl">
+                <div className="prod-title"></div>
+                <div className="prod-img">
+                  <div
+                    onClick={() => history.push("/gallery/" + album._id)}
+                    className={`m-4 ${getColor(
+                      i
+                    )} rounded-2xl items-center justify-center text-center text-white py-16 cursor-pointer	font-bold`}
+                  >
+                    {album.name}
+                  </div>
+                </div>
+                <div className="flex py-2 px-5 flex-col md:flex-row justify-between items-center ">
+                  <button
+                    onClick={(e) => handleRemove(album._id)}
+                    className="px-6 py-2 transition ease-in duration-200 uppercase rounded-full text-red-900 hover:bg-red-800 hover:text-white border-2 border-red-900 focus:outline-none"
+                  >
+                    Remove
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      setAlbum(album);
+                      setShowModal(true);
+                    }}
+                    className="px-6 py-2 transition ease-in duration-200 uppercase rounded-full hover:bg-blue-800 hover:text-white border-2 border-blue-900 focus:outline-none text-blue-900"
+                  >
+                    Edit
+                  </button>
+                </div>
               </div>
-              <button
-                onClick={(e) => {
-                  setAlbum(album);
-                  setShowModal(true);
-                }}
-                className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-              >
-                Edit
-              </button>
-
-              <button
-                onClick={(e) => handleRemove(album._id)}
-                className="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded"
-              >
-                Remove
-              </button>
             </div>
           ))}
         </div>
