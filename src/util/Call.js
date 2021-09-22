@@ -1,6 +1,5 @@
 let endpoint = () => {
   if (process.env.NODE_ENV === "production") {
-    console.log(process.env.PUBLIC_URL);
     console.log(process.env.API_URL);
 
     console.log(process.env.URL);
