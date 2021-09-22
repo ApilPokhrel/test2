@@ -1,15 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Axios from "axios";
 import Nav from "../Nav";
-import Call from "../../util/Call";
-
-let endpoint = () => {
-  if (process.env.NODE_ENV === "production") {
-    return process.env.URL + "/api/v1";
-  }
-
-  return "http://localhost:3600/api/v1";
-};
+import Call, { apiUrl } from "../../util/Call";
 
 export default function File(props) {
   const [files, setFiles] = useState([]);
@@ -56,7 +48,7 @@ export default function File(props) {
       formData.append("file", f);
     }
 
-    Axios.post(`${endpoint()}/file/${props.match.params.id}`, formData, {
+    Axios.post(`${apiUrl()}/file/${props.match.params.id}`, formData, {
       headers: {
         token: window.localStorage.getItem("token") || "",
       },

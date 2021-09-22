@@ -1,14 +1,12 @@
 let endpoint = () => {
   if (process.env.NODE_ENV === "production") {
-    console.log(process.env.API_URL);
-
-    console.log(process.env.URL);
-
-    return process.env.URL + "/api/v1";
+    return "https://efsc-gallery.herokuapp.com/api/v1";
   }
 
   return "http://localhost:3600/api/v1";
 };
+
+export let apiUrl = endpoint;
 
 export default function call({ path, method, body, params }) {
   return new Promise((resolve, reject) => {
