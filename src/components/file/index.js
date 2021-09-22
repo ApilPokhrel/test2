@@ -5,7 +5,7 @@ import Call from "../../util/Call";
 
 let endpoint = () => {
   if (process.env.NODE_ENV === "production") {
-    return "https://efsc-gallery.herokuapp.com/api/v1";
+    return process.env.URL + "/api/v1";
   }
 
   return "http://localhost:3600/api/v1";
